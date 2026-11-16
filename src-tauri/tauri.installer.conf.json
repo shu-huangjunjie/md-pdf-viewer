@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "PrismStudio",
+  "bundle": {
+    "targets": ["nsis"],
+    "publisher": "shu-huangjunjie",
+    "homepage": "https://github.com/shu-huangjunjie/prism-studio",
+    "shortDescription": "棱镜工坊 · 多语言代码实验与科研文档工作台",
+    "windows": {
+      "webviewInstallMode": {
+        "type": "downloadBootstrapper",
+        "silent": true
+      },
+      "nsis": {
+        "installMode": "currentUser",
+        "languages": ["SimpChinese", "English"],
+        "displayLanguageSelector": true,
+        "installerIcon": "icons/icon.ico",
+        "startMenuFolder": "PrismStudio",
+        "compression": "lzma"
+      }
+    }
+  }
+}

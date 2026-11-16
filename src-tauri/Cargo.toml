@@ -1,0 +1,34 @@
+[package]
+name = "md-pdf-reader"
+version = "0.1.0"
+description = "棱镜工坊 PrismStudio · 多语言代码实验与科研文档工作台 (TypeScript + Rust)"
+edition = "2021"
+
+[lib]
+name = "md_pdf_reader_lib"
+crate-type = ["lib"]
+
+[profile.dev]
+incremental = true
+debug = 1
+
+[build-dependencies]
+tauri-build = { version = "2.0", features = [] }
+
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]
+
+[dependencies]
+tauri = { version = "2.0", features = [] }
+tauri-plugin-shell = "2.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = { version = "1.0", features = ["preserve_order"] }
+uuid = { version = "1.8", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+dirs = "5.0"
+encoding_rs = "0.8"
+thiserror = "1.0"
+
+[target.'cfg(windows)'.dependencies]
+windows = { version = "0.61", features = ["Win32_Foundation", "Win32_System_Com", "Win32_UI_Shell", "Win32_UI_Shell_Common"] }
